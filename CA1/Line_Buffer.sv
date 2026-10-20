@@ -5,10 +5,10 @@ module sobel_line_buffer #(
     parameter int unsigned COL_WIDTH    = (IMAGE_WIDTH <= 1) ? 1 : $clog2(IMAGE_WIDTH),
     parameter int unsigned ROW_WIDTH    = (IMAGE_HEIGHT <= 1) ? 1 : $clog2(IMAGE_HEIGHT)
 ) (
-    input  logic  clk,
-    input  logic  rst,
+    input  logic                   clk,
+    input  logic                   rst,
 
-    input  logic  pixel_valid,
+    input  logic                   pixel_valid,
     input  logic [PIXEL_WIDTH-1:0] pixel_in,
 
     input  logic [COL_WIDTH-1:0]   col_idx,
@@ -26,10 +26,10 @@ module sobel_line_buffer #(
     output logic [PIXEL_WIDTH-1:0] p21,
     output logic [PIXEL_WIDTH-1:0] p22,
 
-    output logic     window_valid
+    output logic                   window_valid
 );
 
-    logic   valid_pixel;
+    logic                   valid_pixel;
     logic [PIXEL_WIDTH-1:0] line1_out;
     logic [PIXEL_WIDTH-1:0] line2_out;
 
