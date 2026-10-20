@@ -1,27 +1,23 @@
 module Reg #(
-    parameter int unsigned Data_len = 8
+    parameter int unsigned DATA_WIDTH = 8
 ) (
-    input  logic [Data_len-1:0] IN,
-    input  logic               clk,
-    input  logic               rst,
-    input  logic               RESET,
-    input  logic               load,
-    input  logic               Zero,
-    output logic [Data_len-1:0] OUT
+    input  logic                  clk,
+    input  logic                  rst,    
+    input  logic                  clr,   
+    input  logic                  load,   
+    input  logic [DATA_WIDTH-1:0] din,
+    output logic [DATA_WIDTH-1:0] dout
 );
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
-            OUT <= '0;
+            dout <= '0;
         end
-        else if (RESET) begin
-            OUT <= '0;
-        end
-        else if (Zero) begin
-            OUT <= '0;
+        else if (clr) begin
+            dout <= '0;
         end
         else if (load) begin
-            OUT <= IN;
+            dout <= din;
         end
     end
 
