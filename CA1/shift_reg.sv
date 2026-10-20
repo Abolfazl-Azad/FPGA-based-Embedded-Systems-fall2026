@@ -2,12 +2,12 @@ module shift_reg #(
     parameter int unsigned DATA_WIDTH = 8,
     parameter int unsigned DEPTH      = 3
 ) (
-    input  logic                  clk,
-    input  logic                  rst,
-    input  logic                  en,
-    input  logic [DATA_WIDTH-1:0] din,
-    output logic [DATA_WIDTH-1:0] dout,
-    output logic [DATA_WIDTH-1:0] taps [DEPTH]
+    input  logic                   clk,
+    input  logic                   rst,
+    input  logic                   en,
+    input  logic [DATA_WIDTH-1:0]  din,
+    output logic [DATA_WIDTH-1:0]  dout,
+    output logic [DATA_WIDTH-1:0]  taps [DEPTH]
 );
 
     always_ff @(posedge clk or posedge rst) begin
